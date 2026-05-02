@@ -94,6 +94,15 @@
             border-bottom: 1px solid var(--border-color);
         }
 
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(500%); }
+        }
+
+        .animate-scan {
+            animation: scan 10s linear infinite;
+        }
+
         /* Page System */
         .page-content {
             display: none;
@@ -104,10 +113,9 @@
 
         .cover-container { perspective: 1000px; }
         .cover-image-card {
-            transform: rotateY(-5deg) rotateX(2deg);
             transition: transform 0.6s ease;
         }
-        .cover-image-card:hover { transform: rotateY(0deg) rotateX(0deg); }
+        .cover-image-card:hover { transform: scale(1.01); }
     </style>
 </head>
 <body class="bg-mesh">
@@ -169,31 +177,68 @@
     <!-- Home Page -->
     <div id="page-home" class="page-content active">
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-32 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-16 items-center">
-            <div class="reveal">
+    <section class="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 w-full flex flex-col items-center text-center reveal">
+            <div class="max-w-5xl">
                 <span class="inline-block px-3 py-1 rounded-full bg-[#00f0ff]/10 text-prime text-[10px] font-bold uppercase tracking-widest border border-[#00f0ff]/20 mb-6 font-mono">
                     Elite Web Builder Framework v2.0
                 </span>
-                <h1 class="text-5xl md:text-7xl lg:text-[72px] font-black tracking-tighter leading-[0.9] mb-8 uppercase">
+                <h1 class="text-4xl sm:text-6xl md:text-8xl lg:text-[120px] font-black tracking-tighter leading-[0.9] sm:leading-[0.8] mb-10 uppercase">
                     Precision <br><span class="text-prime">Engineered</span> <br>Website builds.
                 </h1>
-                <p class="text-lg md:text-xl text-[#94a3b8] max-w-lg mb-10 leading-relaxed font-light">
-                    We don't just "drag-and-drop". We architect high-conversion, speed-optimized digital engines that actually turn your local visitors into loyal clients.
+                <p class="text-lg sm:text-xl md:text-3xl text-[#94a3b8] max-w-3xl mx-auto mb-14 leading-relaxed font-light">
+                    We architect high-conversion, speed-optimized digital engines that actually turn your local visitors into loyal clients.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center gap-4">
-                    <button onclick="showPage('pricing')" class="w-full sm:w-auto btn-prime px-8 py-5 rounded-xl font-bold text-center transition-all">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <button onclick="showPage('pricing')" class="w-full sm:w-auto btn-prime px-12 py-7 rounded-xl font-bold text-xl text-center transition-all shadow-[0_0_30px_rgba(0,240,255,0.2)]">
                         Compare Build Tiers
                     </button>
-                    <button onclick="showPage('showcase')" class="w-full sm:w-auto border border-white/10 text-white px-8 py-5 rounded-xl font-bold text-center hover:bg-white/5 transition-all">
+                    <button onclick="showPage('showcase')" class="w-full sm:w-auto border border-white/10 text-white px-12 py-7 rounded-xl font-bold text-xl text-center hover:bg-white/5 transition-all">
                         View Past Builds
                     </button>
                 </div>
             </div>
+        </div>
 
-            <div class="reveal cover-container">
-                <div class="cover-image-card frosted-glass p-2 rounded-[32px] shadow-2xl relative overflow-hidden group">
-                    <img src="https://i.imgur.com/ZEgRcLH.png" alt="PrimeWeb Studio Cover" class="w-full h-auto rounded-[30px] object-cover opacity-90 group-hover:opacity-100 transition-opacity">
+        <!-- Home Page Resource Card ("The Bubble") -->
+        <div class="max-w-5xl mx-auto px-6 w-full mt-20 reveal">
+            <div class="cover-image-card frosted-glass p-2 rounded-[32px] shadow-2xl relative overflow-hidden group">
+                <img src="https://i.imgur.com/ZEgRcLH.png" alt="PrimeWeb Studio Precision" class="w-full h-auto rounded-[30px] object-cover opacity-90 group-hover:opacity-100 transition-opacity">
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section (Filling the void) -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-left mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">Engineered for <br><span class="text-prime">Dominance.</span></h2>
+                <p class="text-[#94a3b8] max-w-xl font-light">We don't build standard websites. We build competitive advantages using high-performance architecture and conversion-first logic.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="reveal frosted-glass p-8 rounded-[32px] hover:border-prime/30 transition-all">
+                    <div class="w-12 h-12 bg-prime/10 rounded-xl flex items-center justify-center mb-6 border border-prime/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-prime"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 21V3"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Conversion Focused</h3>
+                    <p class="text-sm text-[#94a3b8] leading-relaxed font-light">Every pixel is placed with intent. We design layouts that guide your visitors exactly where they need to go.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="reveal frosted-glass p-8 rounded-[32px] hover:border-prime/30 transition-all lg:mt-8">
+                    <div class="w-12 h-12 bg-prime/10 rounded-xl flex items-center justify-center mb-6 border border-prime/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-prime"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Extreme Velocity</h3>
+                    <p class="text-sm text-[#94a3b8] leading-relaxed font-light">Slow sites kill business. Our builds are optimized for sub-second load times and perfect Core Web Vitals.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="reveal frosted-glass p-8 rounded-[32px] hover:border-prime/30 transition-all lg:mt-16">
+                    <div class="w-12 h-12 bg-prime/10 rounded-xl flex items-center justify-center mb-6 border border-prime/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-prime"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fortified Security</h3>
+                    <p class="text-sm text-[#94a3b8] leading-relaxed font-light">Industry-standard protection and clean codebase mean your site is shielded from modern web threats.</p>
                 </div>
             </div>
         </div>
@@ -201,22 +246,22 @@
 
     <!-- Stats Bar -->
     <section class="border-t border-white/5 bg-[#020617]/80 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="max-w-7xl mx-auto px-6 py-12 md:py-16 grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="reveal">
-                <div class="text-3xl font-bold text-white mb-1">250+</div>
-                <div class="text-xs font-semibold text-[#64748b] uppercase tracking-widest">Sites Launched</div>
+                <div class="text-2xl sm:text-3xl font-bold text-white mb-1">50+</div>
+                <div class="text-[10px] sm:text-xs font-semibold text-[#64748b] uppercase tracking-widest">Bespoke Assets</div>
             </div>
             <div class="reveal">
-                <div class="text-3xl font-bold text-white mb-1">$12M+</div>
-                <div class="text-xs font-semibold text-[#64748b] uppercase tracking-widest">Client Revenue</div>
+                <div class="text-2xl sm:text-3xl font-bold text-white mb-1">100%</div>
+                <div class="text-[10px] sm:text-xs font-semibold text-[#64748b] uppercase tracking-widest">Client Success</div>
             </div>
             <div class="reveal">
-                <div class="text-3xl font-bold text-white mb-1">99.9%</div>
-                <div class="text-xs font-semibold text-[#64748b] uppercase tracking-widest">Platform Uptime</div>
+                <div class="text-2xl sm:text-3xl font-bold text-white mb-1">&lt; 800ms</div>
+                <div class="text-[10px] sm:text-xs font-semibold text-[#64748b] uppercase tracking-widest">Page Response</div>
             </div>
             <div class="reveal">
-                <div class="text-3xl font-bold text-white mb-1">24/7</div>
-                <div class="text-xs font-semibold text-[#64748b] uppercase tracking-widest">Support</div>
+                <div class="text-2xl sm:text-3xl font-bold text-white mb-1">24/7</div>
+                <div class="text-[10px] sm:text-xs font-semibold text-[#64748b] uppercase tracking-widest">Expert Support</div>
             </div>
         </div>
     </section>
@@ -295,7 +340,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="reveal relative h-[480px] overflow-hidden rounded-3xl group cursor-pointer border border-white/5">
+                <div class="reveal relative h-[300px] md:h-[480px] overflow-hidden rounded-3xl group cursor-pointer border border-white/5">
                     <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Work 1">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#02040a] via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-10 w-full">
@@ -303,7 +348,7 @@
                         <h4 class="text-2xl font-bold text-white">Lumina Labs</h4>
                     </div>
                 </div>
-                <div class="reveal relative h-[480px] overflow-hidden rounded-3xl group cursor-pointer border border-white/5">
+                <div class="reveal relative h-[300px] md:h-[480px] overflow-hidden rounded-3xl group cursor-pointer border border-white/5">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Work 2">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#02040a] via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-10 w-full">
@@ -311,7 +356,7 @@
                         <h4 class="text-2xl font-bold text-white">Horizon Architecture</h4>
                     </div>
                 </div>
-                <div class="reveal relative h-[480px] overflow-hidden rounded-3xl group cursor-pointer border border-white/5">
+                <div class="reveal relative h-[300px] md:h-[480px] overflow-hidden rounded-3xl group cursor-pointer border border-white/5">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Work 3">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#02040a] via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-10 w-full">
@@ -335,9 +380,9 @@
                 <div class="h-1 w-20 bg-prime mx-auto rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
                 <!-- Starter Site -->
-                <div class="reveal frosted-glass p-8 rounded-[32px] flex flex-col hover:border-[#00f0ff]/30 transition-all group">
+                <div class="reveal frosted-glass p-8 rounded-[32px] flex flex-col hover:border-[#00f0ff]/30 transition-all group h-full">
                     <div class="mb-6">
                         <h4 class="text-lg font-bold text-white mb-2">Starter Site</h4>
                         <p class="text-xs text-[var(--text-muted)] font-light italic">Perfect for getting online fast</p>
@@ -375,7 +420,7 @@
                 </div>
 
                 <!-- Business Site -->
-                <div class="reveal frosted-glass p-8 rounded-[32px] flex flex-col border-[#00f0ff]/40 shadow-[0_0_50px_rgba(0,240,255,0.1)] relative overflow-hidden scale-105 z-10">
+                <div class="reveal frosted-glass p-8 rounded-[32px] flex flex-col border-[#00f0ff]/40 shadow-[0_0_50px_rgba(0,240,255,0.1)] relative overflow-hidden h-full z-10 md:scale-105">
                     <div class="absolute top-0 right-0 bg-prime text-black px-4 py-1 text-[9px] font-black uppercase tracking-widest rounded-bl-xl">⭐ Most Popular</div>
                     <div class="mb-6">
                         <h4 class="text-lg font-bold text-prime mb-2">Business Site</h4>
@@ -414,11 +459,11 @@
                             1 revision
                         </li>
                     </ul>
-                    <button onclick="showPage('contact')" class="w-full py-4 rounded-xl btn-prime text-center font-bold transition-all text-sm">Select Business</button>
+                    <button onclick="showPage('contact')" class="w-full mt-auto py-4 rounded-xl btn-prime text-center font-bold transition-all text-sm">Select Business</button>
                 </div>
 
                 <!-- Pro Site -->
-                <div class="reveal frosted-glass p-8 rounded-[32px] flex flex-col hover:border-[#00f0ff]/30 transition-all group">
+                <div class="reveal frosted-glass p-8 rounded-[32px] flex flex-col hover:border-[#00f0ff]/30 transition-all group h-full">
                     <div class="absolute top-0 right-0 bg-orange-500 text-black px-4 py-1 text-[9px] font-black uppercase tracking-widest rounded-bl-xl">🔥 Pro</div>
                     <div class="mb-6">
                         <h4 class="text-lg font-bold text-white mb-2">Pro Site</h4>
@@ -461,11 +506,11 @@
                             2 revisions
                         </li>
                     </ul>
-                    <button onclick="showPage('contact')" class="w-full py-4 rounded-xl border border-white/10 text-white text-center font-bold hover:bg-white/5 transition-all text-sm">Select Pro</button>
+                    <button onclick="showPage('contact')" class="w-full mt-auto py-4 rounded-xl border border-white/10 text-white text-center font-bold hover:bg-white/5 transition-all text-sm">Select Pro</button>
                 </div>
 
                 <!-- Premium Site -->
-                <div class="reveal frosted-glass p-8 rounded-[32px] flex flex-col hover:border-[#00f0ff]/30 transition-all group">
+                <div class="reveal frosted-glass p-8 rounded-[32px] flex flex-col hover:border-[#00f0ff]/30 transition-all group h-full">
                     <div class="mb-6">
                         <h4 class="text-lg font-bold text-white mb-2">Premium Site</h4>
                         <p class="text-xs text-[var(--text-muted)] font-light italic">For serious businesses</p>
@@ -507,11 +552,11 @@
                             2–3 revisions
                         </li>
                     </ul>
-                    <button onclick="showPage('contact')" class="w-full py-4 rounded-xl border border-white/10 text-white text-center font-bold hover:bg-white/5 transition-all text-sm">Select Premium</button>
+                    <button onclick="showPage('contact')" class="w-full mt-auto py-4 rounded-xl border border-white/10 text-white text-center font-bold hover:bg-white/5 transition-all text-sm">Select Premium</button>
                 </div>
                 
                 <!-- Custom Project -->
-                <div class="reveal frosted-glass p-8 rounded-[32px] flex flex-col hover:border-[#00f0ff]/30 transition-all group lg:col-span-2 lg:max-w-4xl lg:mx-auto lg:w-full">
+                <div class="reveal frosted-glass p-8 rounded-[32px] flex flex-col hover:border-[#00f0ff]/30 transition-all group lg:col-span-2 lg:max-w-4xl lg:mx-auto lg:w-full h-full">
                     <div class="mb-6">
                         <h4 class="text-lg font-bold text-white mb-2">Custom Project</h4>
                         <p class="text-xs text-[var(--text-muted)] font-light italic">For businesses with specific or advanced needs</p>
@@ -541,7 +586,7 @@
                             </li>
                         </ul>
                     </div>
-                    <button onclick="showPage('contact')" class="w-full py-4 rounded-xl border border-white/10 text-white text-center font-bold hover:bg-white/5 transition-all text-sm">Consult for Custom Project</button>
+                    <button onclick="showPage('contact')" class="w-full mt-auto py-4 rounded-xl border border-white/10 text-white text-center font-bold hover:bg-white/5 transition-all text-sm">Consult for Custom Project</button>
                 </div>
             </div>
         </div>
@@ -552,26 +597,47 @@
     <div id="page-contact" class="page-content">
     <!-- Contact Section -->
     <section class="py-32 px-6">
-        <div class="max-w-4xl mx-auto frosted-glass rounded-[48px] p-16 md:p-24 text-center reveal">
-            <h2 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight text-white leading-tight">Stop building websites. <br>Start building <span class="text-prime">conversions.</span></h2>
-            <p class="text-xl text-[#94a3b8] mb-12 max-w-xl mx-auto leading-relaxed font-light">
-                Join the ranks of modern businesses that demand more from their digital headquarters. Let's build something exceptional.
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <span class="inline-block px-3 py-1 rounded-full bg-prime/10 text-prime text-[10px] font-bold uppercase tracking-widest border border-prime/20 mb-6 font-mono">
+                Connect With Us
+            </span>
+            <h2 class="text-4xl md:text-7xl font-extrabold mb-8 tracking-tight text-white leading-tight">Ready to build <br>your <span class="text-prime">conversion engine?</span></h2>
+            <p class="text-xl text-[#94a3b8] mb-16 max-w-2xl mx-auto leading-relaxed font-light">
+                Join the ranks of modern businesses that demand more from their digital headquarters. Skip the forms and contact us directly to start your project.
             </p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-12">
-                <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <span class="block text-[10px] font-bold uppercase tracking-widest text-prime mb-2">Email Us</span>
-                    <a href="mailto:primewebstudio27@gmail.com" class="text-lg font-medium text-white hover:text-prime transition-colors">primewebstudio27@gmail.com</a>
-                </div>
-                <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <span class="block text-[10px] font-bold uppercase tracking-widest text-prime mb-2">Call Us</span>
-                    <a href="tel:8645182340" class="text-lg font-medium text-white hover:text-prime transition-colors">(864) 518-2340</a>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                <!-- Email Card -->
+                <a href="mailto:primewebstudio27@gmail.com" class="reveal frosted-glass p-6 sm:p-8 rounded-[32px] border border-white/10 flex items-center gap-4 sm:gap-6 transition-all hover:border-prime/40 hover:bg-white/[0.03] group">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-prime/10 rounded-xl flex items-center justify-center border border-prime/20 group-hover:bg-prime/20 transition-colors shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-prime"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </div>
+                    <div class="text-left overflow-hidden">
+                        <span class="block text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-[#64748b] mb-1">Send an Email</span>
+                        <span class="text-sm sm:text-base md:text-xl font-bold text-white group-hover:text-prime transition-colors truncate block">primewebstudio27@gmail.com</span>
+                    </div>
+                </a>
+
+                <!-- Phone Card -->
+                <a href="tel:8645182340" class="reveal frosted-glass p-6 sm:p-8 rounded-[32px] border border-white/10 flex items-center gap-4 sm:gap-6 transition-all hover:border-prime/40 hover:bg-white/[0.03] group">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-prime/10 rounded-xl flex items-center justify-center border border-prime/20 group-hover:bg-prime/20 transition-colors shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-prime"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-[#64748b] mb-1">Give us a Call</span>
+                        <span class="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-prime transition-colors whitespace-nowrap">(864) 518-2340</span>
+                    </div>
+                </a>
             </div>
 
-            <a href="tel:8645182340" class="inline-block btn-prime px-10 py-5 rounded-lg font-bold text-lg transition-all hover:scale-[1.02] hover:-translate-y-1">
-                Call Us To Start
-            </a>
+            <!-- Footer Action -->
+            <div class="max-w-md mx-auto reveal">
+                <a href="tel:8645182340" class="flex flex-col items-center justify-center p-8 rounded-[32px] bg-prime/5 border border-prime/20 hover:border-prime/40 transition-all group overflow-hidden relative">
+                    <div class="absolute inset-0 bg-prime/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <p class="text-sm font-bold text-white mb-1 relative z-10">Immediate Consultation Available</p>
+                    <p class="text-[10px] uppercase tracking-[0.2em] font-medium text-prime relative z-10 opacity-80">Priority Response | Available 24/7</p>
+                </a>
+            </div>
         </div>
     </section>
     </div>
